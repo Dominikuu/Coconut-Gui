@@ -1,0 +1,77 @@
+.card-deck-container {
+  display: flex;
+  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-box-direction: normal;
+  -moz-box-direction: normal;
+  flex: 1 1 1;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-box-flex: 1;
+  -moz-box-flex: 1;
+  width: 100%;
+  position: relative;
+  border-radius: 2px;
+  padding: 10px 10px 30px;
+  flex-direction: row;
+  margin: 10px 10px 10px 10px;
+
+  .mat-card-image {
+    height: 10rem;
+    max-width: 10rem;
+  }
+}
+
+.card-item {
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-box-flex: 1;
+  -moz-box-flex: 1;
+  max-width: 20rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  top: 0;
+  transition: top 0.2s ease;
+
+  &:hover {
+    top: -8px;
+    border: 1px solid rgb(150, 150, 150);
+  }
+}
+
+.banner-innerpage {
+  margin-top: -3.2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  height: 28rem;
+  background-size: cover;
+  background-position: center center;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .title-row {
+      background: rgba(150, 150, 150, 0.2);
+      text-align: center;
+      padding: 2rem 2.5rem;
+      color: white;
+      border-radius: 5px;
+    }
+  }
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}

@@ -1,0 +1,49 @@
+<div
+  class="banner-innerpage"
+  style="
+    background-image: url(https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?cs=srgb&dl=pexels-oleg-magni-1005638.jpg&fm=jpg);
+  "
+>
+  <div class="container">
+    <div class="title-row">
+      <div>
+        <h1 class="title">Shop listing</h1>
+        <h6 class="subtitle">
+          We are small team of creative people working together.
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="line filter-container">
+    <mat-form-field class="example-form-field">
+      <mat-label>Search</mat-label>
+      <input matInput type="text" [(ngModel)]="filtering" />
+      <button
+        mat-button
+        *ngIf="filtering"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="filtering = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</div>
+<div class="card-deck-container">
+  <mat-card
+    *ngFor="let i of items"
+    class="card-item"
+    (click)="redirect(i.id, i.slug)"
+  >
+    <img mat-card-image src="{{ i.image }}" />
+    <mat-card-content>
+      <p class="bold">{{ i.name }}</p>
+      <p>Price: {{ i.stock }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

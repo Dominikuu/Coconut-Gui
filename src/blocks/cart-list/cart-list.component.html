@@ -1,0 +1,90 @@
+<div class="block-cart-list">
+  <h1>Your shopping cart</h1>
+  <div class="row">
+    <div class="table-wrapper">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <img class="product-img" [src]="element?.image" />
+          </td>
+          <td mat-footer-cell *matFooterCellDef>Total</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Product name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <div class="input-tick">
+              <button class="plusminus" (click)="handleMinus(element.id)">
+                -
+              </button>
+              <input
+                type="number"
+                class="num"
+                value="0"
+                (input)="qtyChange($event.target.value, element.id)"
+                [(ngModel)]="element.quantity"
+              />
+              <button class="plusminus" (click)="handlePlus(element.id)">
+                +
+              </button>
+            </div>
+          </td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Unit price</th>
+          <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="total_price">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let element">{{ element.total_price }}</td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+        <ng-container matColumnDef="removeable">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="deleteCartItem(element.id)"
+            >
+              delete
+            </button>
+          </td>
+          <td mat-footer-cell *matFooterCellDef>{{ cartTotalPrice }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </div>
+  <div class="row">
+    <div class="button-wrapper">
+      <button mat-raised-button color="primary" (click)="redirectTo('product')">
+        Continue shopping
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="dataSource?.length === 0"
+        (click)="redirectTo('checkout')"
+      >
+        Checkout
+      </button>
+    </div>
+  </div>
+</div>

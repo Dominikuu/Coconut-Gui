@@ -1,0 +1,79 @@
+.block-cart-list {
+  h1 {
+    text-align: center;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-img {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .table-wrapper {
+    width: 60%;
+  }
+
+  .button-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+
+    button {
+      width: 20rem;
+      margin: 0 2rem;
+    }
+  }
+
+  .input-tick {
+    border: 2px #dcd3d3 solid;
+    width: 7rem;
+    height: 1.75rem;
+    display: flex;
+    border-radius: 5px;
+
+    .plusminus {
+      height: 100%;
+      width: 30%;
+      background: white;
+      border: none;
+      font-size: 1.35rem;
+      color: #6c757d;
+      padding: 0;
+    }
+
+    .num {
+      height: 100%;
+      width: 39%;
+      border: none;
+      font-size: 1rem;
+      border-left: 2px solid #dcd3d3;
+      border-right: 2px solid #dcd3d3;
+    }
+
+    input {
+      text-align: center;
+      border: 1px solid #6c757d;
+    }
+
+    input[type="number"] {
+      -webkit-appearance: textfield !important;
+      -moz-appearance: textfield !important;
+      appearance: textfield !important;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}

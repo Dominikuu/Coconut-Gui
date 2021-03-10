@@ -1,0 +1,119 @@
+<div class="block-checkout-info">
+  <div class="wrapper">
+    <div class="left-panel">
+      <div class="container">
+        <h2>Information</h2>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <mat-form-field floatLabel="always">
+              <mat-label>First name</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="first_name"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName?.errors }"
+              />
+              <mat-error *ngIf="submitted && f.lastName.errors?.required">
+                <span *ngIf="f.lastName.errors?.required"
+                  >First Name is required</span
+                >
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field floatLabel="always">
+              <mat-label>Last name</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="last_name"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+              />
+              <mat-error *ngIf="submitted && f.lastName.errors?.required">
+                <span *ngIf="f.lastName.errors?.required"
+                  >Last Name is required</span
+                >
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field floatLabel="always">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="email"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+              />
+              <mat-error *ngIf="submitted && f.email.errors?.required">
+                <span *ngIf="f.email.errors?.required">Email is required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field floatLabel="always">
+              <mat-label>Address</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="address"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+              />
+              <mat-error *ngIf="submitted && f.address.errors?.required">
+                <span *ngIf="f.address.errors?.required"
+                  >Address is required</span
+                >
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field floatLabel="always">
+              <mat-label>Postal code</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="postal_code"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.postal_code.errors }"
+              />
+              <mat-error *ngIf="f.postal_code.errors?.required">
+                <span *ngIf="f.postal_code.errors?.required"
+                  >postal_code is required</span
+                >
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <button
+              mat-raised-button
+              [class.spinner]="loading"
+              [disabled]="loading"
+              color="primary"
+            >
+              Place order
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="container">
+        <h2>Your order</h2>
+        <table class="order-table">
+          <tr *ngFor="let row of orders">
+            <td>{{ row.description }}</td>
+            <td class="right">{{ row.price }}</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total</td>
+            <td class="right">3000</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
